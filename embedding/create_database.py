@@ -6,6 +6,7 @@ from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_community.embeddings.sentence_transformer import (
     SentenceTransformerEmbeddings,
 )
+import patch_sqlite3
 from langchain_community.vectorstores import Chroma
 
 CHROMA_PATH = "chroma"
