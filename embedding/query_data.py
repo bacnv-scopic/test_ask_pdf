@@ -2,6 +2,7 @@
 
 from dotenv import load_dotenv
 from langchain.prompts import ChatPromptTemplate
+import patch_sqlite3
 from langchain.vectorstores.chroma import Chroma
 from langchain_community.embeddings.sentence_transformer import (
     SentenceTransformerEmbeddings,
