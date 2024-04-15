@@ -73,7 +73,7 @@ def save_to_chroma(chunks: list, chroma_path: str):
     print(f"Saved {len(chunks)} chunks to {chroma_path}.")
 
 
-def main():
+def create_database():
     # load the pdf documents
     documents = load_pdf_from_path(DATA_PATH)
 
@@ -85,4 +85,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    create_database()

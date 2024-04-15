@@ -1,6 +1,6 @@
 import streamlit as st
 from query_data import perform_query
-
+from create_database import create_database
 
 def main():
     st.set_page_config(page_title="Ask your PDF")
@@ -8,6 +8,13 @@ def main():
     st.write("The PDF document is a book about Steve Jobs. \
              Try to ask a question about Steve Jobs.")
     query_text = st.text_input("Ask your question:")
+
+    with st.sidebar:
+        st.write("For developers:")
+        if st.button("Process"):
+            create_database()
+            st.write("Database created.")
+            
 
     if query_text:
         if query_text:  # Check if query_text is not empty
@@ -25,6 +32,7 @@ def main():
             st.write("Sources:")
             for source in sources:
                 st.write(source)
+    
 
 
 if __name__ == "__main__":
