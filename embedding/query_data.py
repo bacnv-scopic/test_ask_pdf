@@ -64,8 +64,9 @@ def generate_response_from_results(results, query_text):
 
     # Generate the response using the model
     model = ChatOpenAI()
-    response_text = model.invoke(prompt).content
-
+    # For debug
+    # response_text = model.invoke(prompt).content
+    response_text = None
     # Preparing the source information
     sources = []
     for doc, _score in results:
