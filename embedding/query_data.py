@@ -30,27 +30,12 @@ def similarity_search(query_text):
     embedding_function = SentenceTransformerEmbeddings(
         model_name="all-MiniLM-L6-v2"
     )
-    # check if the embedding function is loaded
-    print("Embedding function: ", embedding_function)
-    print("-" * 50)
+
     # Prepare the database
     db = Chroma(
         persist_directory=CHROMA_PATH, embedding_function=embedding_function
     )
     
-    # check the chroma path
-    print("Chroma path: ", CHROMA_PATH)
-    print("-" * 50)
-
-    # check the persist directory
-    print("Persist directory: ", db._persist_directory)
-    print("-" * 50)
-
-    # check if the database is successfully loaded
-    print("Database: ", db)
-    print("-" * 50)
-
-
     # Perform the similarity search in the database
     results = db.similarity_search_with_relevance_scores(query_text, k=3)
 
@@ -79,9 +64,8 @@ def generate_response_from_results(results, query_text):
 
     # Generate the response using the model
     model = ChatOpenAI()
-    # For debug
-    # response_text = model.invoke(prompt).content
-    response_text = None
+    response_text = model.invoke(prompt).content
+    
     # Preparing the source information
     sources = []
     for doc, _score in results:
