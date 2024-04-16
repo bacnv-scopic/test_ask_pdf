@@ -21,10 +21,7 @@ def main():
             response_text, sources = perform_query(query_text)
             if response_text is None:
                 st.write("Sorry, I could not find an answer to your question.")
-                st.write("Sources:")
-                for source in sources:
-                    st.write(source)
-                return
+            
             st.write("Answer:")
             st.write(response_text)  # Display the response
 
@@ -33,7 +30,6 @@ def main():
             for source in sources:
                 st.write(source)
     
-
 
 if __name__ == "__main__":
     main()
