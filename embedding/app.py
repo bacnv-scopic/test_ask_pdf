@@ -20,15 +20,15 @@ def main():
         if query_text:  # Check if query_text is not empty
             response_text, sources = perform_query(query_text)
             if response_text is None:
-                st.write("Sorry, I could not find an answer to your question.")
-                return
-            st.write("Answer:")
-            st.write(response_text)  # Display the response
+                st.write("Sorry, I could not find an answer to your question. Try to make more detailed questions.")
+            else:
+                st.write("Answer:")
+                st.write(response_text)  # Display the response
 
-            st.write("------")
-            st.write("Sources:")
-            for source in sources:
-                st.write(source)
+                st.write("------")
+                st.write("Sources:")
+                for source in sources:
+                    st.write(source)
     
 
 if __name__ == "__main__":
