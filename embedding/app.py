@@ -1,6 +1,7 @@
 import streamlit as st
 from query_data import perform_query
 from create_database import create_database
+import os
 
 def main():
     st.set_page_config(page_title="Ask your PDF")
@@ -10,11 +11,13 @@ def main():
     st.write("Example questions:  What is Steve Jobs' personality like?")
     query_text = st.text_input("Ask your question:")
 
-    with st.sidebar:
-        st.write("For developers:")
-        if st.button("Process"):
-            create_database()
-            st.write("Database created.")
+    # check if there is a chroma folder already exits
+    if not os.path.exists("chroma"):
+        with st.sidebar:
+            st.write("For developers:")
+            if st.button("Process"):
+                create_database()
+                st.write("Database created.")
             
 
     if query_text:
