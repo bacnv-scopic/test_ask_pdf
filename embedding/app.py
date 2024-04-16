@@ -11,13 +11,12 @@ def main():
     st.write("Example questions:  What is Steve Jobs' personality like?")
     query_text = st.text_input("Ask your question:")
 
-    # check if there is a chroma folder already exits
-    if not os.path.exists("chroma"):
-        with st.sidebar:
-            st.write("For developers:")
-            if st.button("Process"):
-                create_database()
-                st.write("Database created.")
+
+    with st.sidebar:
+        st.write("For developers:")
+        if st.button("Process"):
+            create_database()
+            st.write("Database created.")
             
 
     if query_text:
