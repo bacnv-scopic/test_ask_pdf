@@ -7,6 +7,7 @@ def main():
     st.header("Ask your PDF")
     st.write("The PDF document is a book about Steve Jobs. \
              Try to ask a question about Steve Jobs.")
+    st.write("Example questions:  What is Steve Jobs' personality like?")
     query_text = st.text_input("Ask your question:")
 
     with st.sidebar:
