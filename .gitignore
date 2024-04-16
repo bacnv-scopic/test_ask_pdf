@@ -12,7 +12,7 @@ build/
 dist/
 *.bin
 *.sqlite3
-# chroma/
+chroma/
 
 
 # dependencies
